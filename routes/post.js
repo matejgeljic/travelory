@@ -15,6 +15,7 @@ router.post(
 );
 router.get("/posts/:userId", authController.requireSignin, postController.postsByUser);
 router.delete("/post/:postId", authController.requireSignin, postController.isPoster, postController.deletePost);
+router.put("/post/:postId", authController.requireSignin, postController.isPoster, postController.updatePost);
 
 //any route containing :userId, app will first execute userById()
 router.param("userId", userController.userById);
